@@ -27,7 +27,7 @@ class UserReadActionTest extends TestCase
     {
         $this->insertFixtures([UserFixture::class]);
 
-        $request = $this->createRequest('GET', '/api/users/1');
+        $request = $this->createRequest('GET', '/api/v1/users/1');
         $request = $this->withHttpBasicAuth($request);
         $response = $this->app->handle($request);
 
@@ -55,7 +55,7 @@ class UserReadActionTest extends TestCase
      */
     public function testInvalidId(): void
     {
-        $request = $this->createRequest('GET', '/api/users/99');
+        $request = $this->createRequest('GET', '/api/v1/users/99');
         $request = $this->withHttpBasicAuth($request);
         $response = $this->app->handle($request);
 

@@ -33,7 +33,7 @@ class UserUpdateActionTest extends TestCase
 
         $request = $this->createJsonRequest(
             'PUT',
-            '/api/users/1',
+            '/api/v1/users/1',
             [
                 'username' => 'admin',
                 'password' => '12345678',
@@ -86,7 +86,7 @@ class UserUpdateActionTest extends TestCase
 
         $request = $this->createJsonRequest(
             'PUT',
-            '/api/users/1',
+            '/api/v1/users/1',
             [
                 'username' => '',
                 'password' => '1234',

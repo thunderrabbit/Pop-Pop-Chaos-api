@@ -30,7 +30,7 @@ class UserCreateActionTest extends TestCase
 
         $request = $this->createJsonRequest(
             'POST',
-            '/api/users',
+            '/api/v1/users',
             [
                 'username' => 'admin',
                 'password' => '12345678',
@@ -85,7 +85,7 @@ class UserCreateActionTest extends TestCase
     {
         $request = $this->createJsonRequest(
             'POST',
-            '/api/users',
+            '/api/v1/users',
             [
                 'username' => '',
                 'password' => '1234',
