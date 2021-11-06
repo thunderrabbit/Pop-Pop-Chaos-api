@@ -14,8 +14,8 @@
 
   [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
   [![Build Status](https://github.com/thunderrabbit/Pop-Pop-Chaos-api/workflows/build/badge.svg)](https://github.com/thunderrabbit/Pop-Pop-Chaos-api/actions)
-  Coverage Status: 0
-  Quality Score: 0
+  [![Code Coverage](https://scrutinizer-ci.com/g/thunderrabbit/Pop-Pop-Chaos-api/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/thunderrabbit/Pop-Pop-Chaos-api/?branch=master)
+  [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/thunderrabbit/Pop-Pop-Chaos-api/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/thunderrabbit/Pop-Pop-Chaos-api/?branch=master)
   Total Downloads: 0
 
 This is a Frankenstein so you should run away!  
