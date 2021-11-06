@@ -15,13 +15,15 @@ return function (App $app) {
 
     // Password protected area
     $app->group(
-        '/api',
+        '/api/{version}',
         function (RouteCollectorProxy $app) {
+            $app->get('', \App\Action\Home\HelloAPI::class)->setName('API home');
+            $app->get('/', \App\Action\Home\HelloAPI::class)->setName('API home');
             $app->get('/users', \App\Action\User\UserFindAction::class);
             $app->post('/users', \App\Action\User\UserCreateAction::class);
             $app->get('/users/{user_id}', \App\Action\User\UserReadAction::class);
             $app->put('/users/{user_id}', \App\Action\User\UserUpdateAction::class);
             $app->delete('/users/{user_id}', \App\Action\User\UserDeleteAction::class);
         }
-    )->add(HttpBasicAuthentication::class);
+    );//->add(HttpBasicAuthentication::class);   // 2021 Nov 7 this was causing errors I don't know how to correct yet
 };

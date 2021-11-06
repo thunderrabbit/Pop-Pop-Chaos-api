@@ -10,7 +10,7 @@
 
 <div align="center">
 
-  Latest Version: vaporware!
+  Latest Version: versioned API
 
   [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
   [![Build Status](https://github.com/thunderrabbit/Pop-Pop-Chaos-api/workflows/build/badge.svg)](https://github.com/thunderrabbit/Pop-Pop-Chaos-api/actions)
