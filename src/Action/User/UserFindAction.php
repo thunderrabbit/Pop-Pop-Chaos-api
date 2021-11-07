@@ -59,7 +59,7 @@ final class UserFindAction
 
         foreach ($users as $user) {
             $userList[] = [
-                'id' => $user->id,
+                'user_id' => $user->id,
                 'username' => $user->username,
                 'first_name' => $user->firstName,
                 'last_name' => $user->lastName,
