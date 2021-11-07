@@ -6,10 +6,10 @@ class Initialization extends AbstractMigration
 {
     protected function up(): void
     {
-        $this->table('users', 'id')
+        $this->table('users', 'user_id') /* was id in the Slim 4 Skeleton, but I prefer user_id to make JOINs easier (if written manually) */
             ->setCharset('utf8mb4')
             ->setCollation('utf8mb4_unicode_ci')
-            ->addColumn('id', 'integer', ['autoincrement' => true])
+            ->addColumn('user_id', 'integer', ['autoincrement' => true]) /* was id in the Slim 4 Skeleton, but I prefer user_id to make JOINs easier (if written manually) */
             ->addColumn('username', 'string', ['null' => true])
             ->addColumn('password', 'string', ['null' => true])
             ->addColumn('email', 'string', ['null' => true])
