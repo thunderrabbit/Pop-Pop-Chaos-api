@@ -77,7 +77,7 @@ final class Responder
         string $destination,
         array $queryParams = []
     ): ResponseInterface {
-        if ($queryParams) {
+        if (!empty($queryParams)) {
             $destination = sprintf('%s?%s', $destination, http_build_query($queryParams));
         }
 
