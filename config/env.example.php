@@ -4,6 +4,8 @@
  * Environment specific application configuration.
  *
  * You should store all secret information (username, password, tokens, private keys) here.
+ * For details, see
+ * https://github.com/odan/slim4-skeleton/blob/master/docs/configuration.md
  *
  * Make sure the env.php file is added to your .gitignore
  * so it is not checked-in the code
