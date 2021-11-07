@@ -58,7 +58,7 @@ class UserCreateActionTest extends TestCase
         $this->assertTableRowCount(1, 'users');
 
         $expected = [
-            'id' => '1',
+            'user_id' => '1',
             'username' => 'admin',
             'email' => 'mail@example.com',
             'first_name' => 'Sally',

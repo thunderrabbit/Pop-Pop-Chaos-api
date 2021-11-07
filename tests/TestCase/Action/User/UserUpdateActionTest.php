@@ -57,7 +57,7 @@ class UserUpdateActionTest extends TestCase
 
         // Check database
         $expected = [
-            'id' => '1',
+            'user_id' => '1',
             'username' => 'admin',
             'email' => 'mail@example.com',
             'first_name' => 'Sally',
@@ -68,7 +68,7 @@ class UserUpdateActionTest extends TestCase
         ];
 
         $this->assertTableRow($expected, 'users', 1);
-        $this->assertTableRowValue('1', 'users', 1, 'id');
+        $this->assertTableRowValue('1', 'users', 1, 'user_id');
 
         // Password
         $password = $this->getTableRowById('users', 1)['password'];

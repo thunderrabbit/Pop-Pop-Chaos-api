@@ -36,7 +36,7 @@ class UserFindActionTest extends TestCase
             [
                 'users' => [
                     0 => [
-                        'id' => 1,
+                        'user_id' => 1,
                         'username' => 'admin',
                         'first_name' => null,
                         'last_name' => null,
@@ -46,7 +46,7 @@ class UserFindActionTest extends TestCase
                         'enabled' => true,
                     ],
                     1 => [
-                        'id' => 2,
+                        'user_id' => 2,
                         'username' => 'user',
                         'first_name' => null,
                         'last_name' => null,

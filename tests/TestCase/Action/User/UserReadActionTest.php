@@ -35,7 +35,7 @@ class UserReadActionTest extends TestCase
         $this->assertJsonContentType($response);
         $this->assertJsonData(
             [
-                'id' => 1,
+                'user_id' => 1,
                 'username' => 'admin',
                 'first_name' => null,
                 'last_name' => null,
