@@ -25,5 +25,5 @@ return function (App $app) {
             $app->put('/users/{user_id}', \App\Action\User\UserUpdateAction::class);
             $app->delete('/users/{user_id}', \App\Action\User\UserDeleteAction::class);
         }
-    );//->add(HttpBasicAuthentication::class);   // 2021 Nov 7 this was causing errors I don't know how to correct yet
+    ); //->add(HttpBasicAuthentication::class);   // 2021 Nov 7 this was causing errors I don't know how to correct yet
 };
