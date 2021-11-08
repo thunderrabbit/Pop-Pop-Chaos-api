@@ -3,22 +3,15 @@
 namespace App\Domain\Bubble\Service;
 
 use App\Domain\Bubble\Repository\BubblesGetterRepository;
-use App\Factory\Logger;
+use Psr\Log\LoggerInterface;
 
 /**
  * Service.
  */
 final class BubblesGetter
 {
-    /**
-     * @var BubblesGetterRepository
-     */
-    private $repository;
-
-    /**
-     * @var Logger each class gets its own logger, which makes pinpoint logging easier(?)
-     */
-    private $logger;
+    private BubblesGetterRepository $repository;
+    private LoggerInterface $logger;
 
     /**
      * The constructor.
