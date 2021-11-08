@@ -16,6 +16,11 @@ final class BubblesGetter
     private $repository;
 
     /**
+     * @var LoggerFactory each class gets its own logger, which makes pinpoint logging easier(?)
+     */
+    private $logger;
+
+    /**
      * The constructor.
      *
      * @param BubblesGetterRepository $repository
