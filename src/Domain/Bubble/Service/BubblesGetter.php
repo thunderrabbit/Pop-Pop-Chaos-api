@@ -3,6 +3,7 @@
 namespace App\Domain\Bubble\Service;
 
 use App\Domain\Bubble\Repository\BubblesGetterRepository;
+use App\Factory\LoggerFactory;
 use Psr\Log\LoggerInterface;
 
 /**
