@@ -27,6 +27,7 @@ final class GetBubblesAction
         $response->getBody()->write((string)json_encode($result));
 
         return $response
+            ->withHeader('Access-Control-Allow-Origin', 'https://bcn.robnugen.com')
             ->withHeader('Content-Type', 'application/json')
             ->withStatus(201);
     }
