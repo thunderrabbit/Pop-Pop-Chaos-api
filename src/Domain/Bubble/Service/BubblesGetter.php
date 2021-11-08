@@ -3,7 +3,7 @@
 namespace App\Domain\Bubble\Service;
 
 use App\Domain\Bubble\Repository\BubblesGetterRepository;
-use App\Factory\LoggerFactory;
+use App\Factory\Logger;
 
 /**
  * Service.
@@ -16,7 +16,7 @@ final class BubblesGetter
     private $repository;
 
     /**
-     * @var LoggerFactory each class gets its own logger, which makes pinpoint logging easier(?)
+     * @var Logger each class gets its own logger, which makes pinpoint logging easier(?)
      */
     private $logger;
 
