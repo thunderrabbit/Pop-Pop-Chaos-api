@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Action\Bubbles;
+namespace App\Action\Bubble;
 
 use App\Domain\Bubble\Service\BubblesGetter;
 use Psr\Http\Message\ResponseInterface;
