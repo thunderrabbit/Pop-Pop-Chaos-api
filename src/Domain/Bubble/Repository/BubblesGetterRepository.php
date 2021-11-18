@@ -64,21 +64,7 @@ final class BubblesGetterRepository
     {
         $sql = "SELECT * FROM bubbles";
 
-        $stmnt = $this->connection->query($sql);
-
-        $bubbles = array();
-        while($row = $stmnt->fetch()) {
-          $bubbles[] = $row;
-        }
-
-/*
-https://phpdelusions.net/pdo_examples/select
-        $data = $pdo->query("SELECT * FROM bubbles")->fetchAll();
-        // and somewhere later:
-        foreach ($data as $row) {
-            echo $row['name']."<br />\n";
-        }
-*/
+        $bubbles = $this->connection->query($sql)->fetchAll();  // https://phpdelusions.net/pdo_examples/select
         return $bubbles;
     }
 }
