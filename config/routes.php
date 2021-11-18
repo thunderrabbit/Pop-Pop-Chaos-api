@@ -20,6 +20,7 @@ return function (App $app) {
             $app->get('', \App\Action\Home\HelloAPI::class)->setName('API home');
             $app->get('/', \App\Action\Home\HelloAPI::class)->setName('API home');
             $app->get('/get_bubbles/', \App\Action\Bubble\GetBubblesAction::class)->setName('what is this name anyway');
+            $app->post('/click_bubble', \App\Action\Bubble\ClickBubbleAction::class);
             $app->get('/users', \App\Action\User\UserFindAction::class);
             $app->post('/users', \App\Action\User\UserCreateAction::class);
             $app->get('/users/{user_id}', \App\Action\User\UserReadAction::class);
