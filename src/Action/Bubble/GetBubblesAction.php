@@ -8,13 +8,28 @@ use Psr\Http\Message\ServerRequestInterface;
 
 final class GetBubblesAction
 {
-    private $bubblesGetter;
+    private BubblesGetter $bubblesGetter;
 
+
+    /**
+     * The constructor.
+     *
+     * @param BubblesGetter $bubblesGetter equivalent to App\Domain\User\Service\UserFinder
+     * //param Responder $responder The responder
+     */
     public function __construct(BubblesGetter $bubblesGetter)
     {
         $this->bubblesGetter = $bubblesGetter;
     }
 
+    /**
+     * Action.   Similar to App\Action\User\UserFindAction
+     *
+     * @param ServerRequestInterface $request The request
+     * @param ResponseInterface $response The response
+     *
+     * @return ResponseInterface The response
+     */
     public function __invoke(
         ServerRequestInterface $request,
         ResponseInterface $response
