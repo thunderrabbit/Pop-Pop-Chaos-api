@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Domain\User\Repository;
+namespace App\Domain\Bubble\Repository;
 
-use App\Domain\User\Data\UserData;
+use App\Domain\Bubble\Data\BubbleData;
 use App\Factory\QueryFactory;
 use DomainException;
 
 /**
  * Repository.
  */
-final class UserRepository
+final class BubbleRepository
 {
     private QueryFactory $queryFactory;
 
@@ -26,13 +26,13 @@ final class UserRepository
     /**
      * Insert user row.
      *
-     * @param UserData $user The user data
+     * @param BubbleData $bubble The user data
      *
      * @return int The new ID
      */
-    public function insertUser(UserData $user): int
+    public function insertBubble(BubbleData $bubble): int
     {
-        return (int)$this->queryFactory->newInsert('users', $this->toRow($user))
+        return (int)$this->queryFactory->newInsert('bubbles', $this->toRow($bubble))
             ->execute()
             ->lastInsertId();
     }
@@ -40,15 +40,15 @@ final class UserRepository
     /**
      * Get user by id.
      *
-     * @param int $userId The user id
+     * @param int $bubbleId The user id
      *
      * @throws DomainException
      *
-     * @return UserData The user
+     * @return BubbleData The user
      */
-    public function getUserById(int $userId): UserData
+    public function getBubbleById(int $bubbleId): BubbleData
     {
-        $query = $this->queryFactory->newSelect('users');
+        $query = $this->queryFactory->newSelect('bubbles');
         $query->select(
             [
                 'id',
@@ -62,47 +62,47 @@ final class UserRepository
             ]
         );
 
-        $query->andWhere(['id' => $userId]);
+        $query->andWhere(['id' => $bubbleId]);
 
         $row = $query->execute()->fetch('assoc');
 
         if (!$row) {
-            throw new DomainException(sprintf('User not found: %s', $userId));
+            throw new DomainException(sprintf('Bubble not found: %s', $bubbleId));
         }
 
-        return new UserData($row);
+        return new BubbleData($row);
     }
 
     /**
      * Update user row.
      *
-     * @param UserData $user The user
+     * @param BubbleData $bubble The user
      *
      * @return void
      */
-    public function updateUser(UserData $user): void
+    public function updateBubble(BubbleData $bubble): void
     {
-        $row = $this->toRow($user);
+        $row = $this->toRow($bubble);
 
         // Updating the password is another use case
         unset($row['password']);
 
-        $this->queryFactory->newUpdate('users', $row)
-            ->andWhere(['id' => $user->id])
+        $this->queryFactory->newUpdate('bubbles', $row)
+            ->andWhere(['id' => $bubble->id])
             ->execute();
     }
 
     /**
      * Check user id.
      *
-     * @param int $userId The user id
+     * @param int $bubbleId The user id
      *
      * @return bool True if exists
      */
-    public function existsUserId(int $userId): bool
+    public function existsBubbleId(int $bubbleId): bool
     {
-        $query = $this->queryFactory->newSelect('users');
-        $query->select('id')->andWhere(['id' => $userId]);
+        $query = $this->queryFactory->newSelect('bubbles');
+        $query->select('id')->andWhere(['id' => $bubbleId]);
 
         return (bool)$query->execute()->fetch('assoc');
     }
@@ -110,36 +110,36 @@ final class UserRepository
     /**
      * Delete user row.
      *
-     * @param int $userId The user id
+     * @param int $bubbleId The user id
      *
      * @return void
      */
-    public function deleteUserById(int $userId): void
+    public function deleteBubbleById(int $bubbleId): void
     {
-        $this->queryFactory->newDelete('users')
-            ->andWhere(['id' => $userId])
+        $this->queryFactory->newDelete('bubbles')
+            ->andWhere(['id' => $bubbleId])
             ->execute();
     }
 
     /**
      * Convert to array.
      *
-     * @param UserData $user The user data
+     * @param BubbleData $bubble The user data
      *
      * @return array The array
      */
-    private function toRow(UserData $user): array
+    private function toRow(BubbleData $bubble): array
     {
         return [
-            'id' => $user->id,
-            'username' => $user->username,
-            'password' => $user->password,
-            'first_name' => $user->firstName,
-            'last_name' => $user->lastName,
-            'email' => $user->email,
-            'user_role_id' => $user->userRoleId,
-            'locale' => $user->locale,
-            'enabled' => (int)$user->enabled,
+            'id' => $bubble->id,
+            'username' => $bubble->username,
+            'password' => $bubble->password,
+            'first_name' => $bubble->firstName,
+            'last_name' => $bubble->lastName,
+            'email' => $bubble->email,
+            'user_role_id' => $bubble->userRoleId,
+            'locale' => $bubble->locale,
+            'enabled' => (int)$bubble->enabled,
         ];
     }
 }
