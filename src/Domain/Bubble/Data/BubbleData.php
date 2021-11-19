@@ -1,31 +1,28 @@
 <?php
 
-namespace App\Domain\User\Data;
+namespace App\Domain\Bubble\Data;
 
 use Selective\ArrayReader\ArrayReader;
 
 /**
  * Data Model.
  */
-final class UserData
+final class BubbleData
 {
-    public ?int $id = null;
+    public ?int $bubble_id = null;
 
-    public ?string $username = null;
+    public ?int $category = null;
 
-    public ?string $password = null;
+    public ?int $cx = null;
 
-    public ?string $email = null;
+    public ?int $cy = null;
 
-    public ?string $firstName = null;
+    public ?int $radius = null;
 
-    public ?string $lastName = null;
+    public ?string $fill = null;
 
-    public ?int $userRoleId = null;
+    public ?int $createdById = null;
 
-    public ?string $locale = null;
-
-    public ?bool $enabled = false;
 
     /**
      * The constructor.
@@ -36,14 +33,12 @@ final class UserData
     {
         $reader = new ArrayReader($data);
 
-        $this->id = $reader->findInt('id');
-        $this->username = $reader->findString('username');
-        $this->firstName = $reader->findString('first_name');
-        $this->lastName = $reader->findString('last_name');
-        $this->password = $reader->findString('password');
-        $this->email = $reader->findString('email');
-        $this->userRoleId = $reader->findInt('user_role_id');
-        $this->locale = $reader->findString('locale');
-        $this->enabled = $reader->findBool('enabled');
+        $this->bubble_id = $reader->findInt('bubble_id');
+        $this->category = $reader->findInt('category');
+        $this->cx = $reader->findInt('cx');
+        $this->cy = $reader->findInt('cy');
+        $this->radius = $reader->findInt('radius');
+        $this->fill = $reader->findString('fill');
+        $this->createdById = $reader->findInt('created_by_id');
     }
 }
