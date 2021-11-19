@@ -58,6 +58,10 @@ final class BubblesGetterRepository
      *
      * Possible future param int Which level of bubbles to get, but maybe each level should be a separate function
      *
+     * Consider using Query Factory like
+     * src/Domain/User/Repository/UserFinderRepository.php
+     * But leave it alone for now because it is working:
+     *
      * @return array List of bubbles
      */
     public function getBubbles(): array
