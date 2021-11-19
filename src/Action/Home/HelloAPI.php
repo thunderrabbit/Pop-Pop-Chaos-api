@@ -24,7 +24,7 @@ final class HelloAPI
         ResponseInterface $response,
         $args
     ) {
-        $version = $args['version'];
+        $version = (int)$args['version'];
         $response->getBody()->write('Hello API version ' . $version);
 
         return $response;
