@@ -61,7 +61,7 @@ final class BubbleRepository
             ]
         );
 
-        $query->andWhere(['id' => $bubbleId]);
+        $query->andWhere(['bubble_id' => $bubbleId]);
 
         $row = $query->execute()->fetch('assoc');
 
@@ -84,7 +84,7 @@ final class BubbleRepository
         $row = $this->toRow($bubble);
 
         $this->queryFactory->newUpdate('bubbles', $row)
-            ->andWhere(['id' => $bubble->id])
+            ->andWhere(['bubble_id' => $bubble->bubble_id])
             ->execute();
     }
 
@@ -98,7 +98,7 @@ final class BubbleRepository
     public function existsBubbleId(int $bubbleId): bool
     {
         $query = $this->queryFactory->newSelect('bubbles');
-        $query->select('id')->andWhere(['id' => $bubbleId]);
+        $query->select('bubble_id')->andWhere(['bubble_id' => $bubbleId]);
 
         return (bool)$query->execute()->fetch('assoc');
     }
@@ -113,7 +113,7 @@ final class BubbleRepository
     public function deleteBubbleById(int $bubbleId): void
     {
         $this->queryFactory->newDelete('bubbles')
-            ->andWhere(['id' => $bubbleId])
+            ->andWhere(['bubble_id' => $bubbleId])
             ->execute();
     }
 
