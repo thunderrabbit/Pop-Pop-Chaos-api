@@ -51,14 +51,13 @@ final class BubbleRepository
         $query = $this->queryFactory->newSelect('bubbles');
         $query->select(
             [
-                'id',
-                'username',
-                'first_name',
-                'last_name',
-                'email',
-                'user_role_id',
-                'locale',
-                'enabled',
+                'bubble_id',
+                'category',
+                'cx',
+                'cy',
+                'radius',
+                'fill',
+                'created_by_id',
             ]
         );
 
@@ -83,9 +82,6 @@ final class BubbleRepository
     public function updateBubble(BubbleData $bubble): void
     {
         $row = $this->toRow($bubble);
-
-        // Updating the password is another use case
-        unset($row['password']);
 
         $this->queryFactory->newUpdate('bubbles', $row)
             ->andWhere(['id' => $bubble->id])
@@ -131,15 +127,13 @@ final class BubbleRepository
     private function toRow(BubbleData $bubble): array
     {
         return [
-            'id' => $bubble->id,
-            'username' => $bubble->username,
-            'password' => $bubble->password,
-            'first_name' => $bubble->firstName,
-            'last_name' => $bubble->lastName,
-            'email' => $bubble->email,
-            'user_role_id' => $bubble->userRoleId,
-            'locale' => $bubble->locale,
-            'enabled' => (int)$bubble->enabled,
+            'bubble_id' => $bubble->bubble_id,
+            'category' => $bubble->category,
+            'cx' => $bubble->cx,
+            'cy' => $bubble->cy,
+            'radius' => $bubble->radius,
+            'fill' => $bubble->fill,
+            'created_by_id' => $bubble->createdById,
         ];
     }
 }
