@@ -14,33 +14,29 @@ final class BubbleClicker
 {
     private BubbleRepository $repository;
 
-    private BubbleValidator $bubbleValidator;
-
     private LoggerInterface $logger;
 
     /**
      * The constructor.
      *
+     * @param BubbleReader $bubbleReader So we can load bubble from DB
      * @param BubbleRepository $repository The repository
-     * @param BubbleValidator $bubbleValidator The validator
      * @param LoggerFactory $loggerFactory The logger factory
      */
     public function __construct(
+        BubbleReader $bubbleReader,
         BubbleRepository $repository,
-        BubbleValidator $bubbleValidator,
-        LoggerFactory $loggerFactory,
-        BubbleReader $bubbleReader
+        LoggerFactory $loggerFactory
     ) {
-        $this->repository = $repository;
-        $this->bubbleValidator = $bubbleValidator;
         $this->bubbleReader = $bubbleReader;
+        $this->repository = $repository;
         $this->logger = $loggerFactory
             ->addFileHandler('bubble_clicker.log')
             ->createLogger();
     }
 
     /**
-     * Update bubble.
+     * Update bubble upon click.  TODO receive and consider info about click
      *
      * @param int $bubbleId The bubble id
      *
@@ -48,9 +44,6 @@ final class BubbleClicker
      */
     public function clickBubble(int $bubbleId): BubbleData
     {
-        // Input validation
-        // $this->bubbleValidator->validateBubbleUpdate($bubbleId, $data);
-
         $bubble_from_db = $this->bubbleReader->getBubbleData($bubbleId);
         $bubble_from_db->radius += 1;       // TODO make this increase based on bubble and click details
 
