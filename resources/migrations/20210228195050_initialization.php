@@ -14,7 +14,7 @@ class Initialization extends AbstractMigration
             ->addColumn('cx', 'integer')
             ->addColumn('cy', 'integer')
             ->addColumn('radius', 'smallinteger', ['length' => 6])
-            ->addColumn('fill', 'integer')
+            ->addColumn('fill', 'char', ['length' => 8])    // was integer, but I changed schema by hand and am guessing this is right.  I lost the steps for how to dump schema
             ->addColumn('created_by_id', 'integer', ['null' => true, 'length' => 255])
             ->addIndex('created_by_id', '', 'btree', 'created_by_id')
             ->create();
