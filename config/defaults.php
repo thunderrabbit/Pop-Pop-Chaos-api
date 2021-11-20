@@ -3,7 +3,7 @@
 // Configure defaults for the whole application.
 
 // Error reporting
-error_reporting(1);                      // was 0 in original Slim Framework skeleton
+error_reporting(E_ALL);                      // was 0 in original Slim Framework skeleton
 ini_set('display_errors', '1');          // was 0 in original Slim Framework skeleton
 ini_set('display_startup_errors', '1');  // was 0 in original Slim Framework skeleton
 
