@@ -3,9 +3,9 @@
 // Configure defaults for the whole application.
 
 // Error reporting
-error_reporting(0);
-ini_set('display_errors', '0');
-ini_set('display_startup_errors', '0');
+error_reporting(1);                      // was 0 in original Slim Framework skeleton
+ini_set('display_errors', '1');          // was 0 in original Slim Framework skeleton
+ini_set('display_startup_errors', '1');  // was 0 in original Slim Framework skeleton
 
 // Timezone
 date_default_timezone_set('Europe/Berlin');
@@ -22,7 +22,7 @@ $settings['template'] = $settings['root'] . '/templates';
 // Error handler
 $settings['error'] = [
     // Should be set to false for the production environment
-    'display_error_details' => false,
+    'display_error_details' => true,  // was false in original Slim Framework skeleton
     // Should be set to false for the test environment
     'log_errors' => true,
     // Display error details in error log
