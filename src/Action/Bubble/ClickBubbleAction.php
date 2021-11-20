@@ -37,10 +37,8 @@ final class ClickBubbleAction
       $bubble_data = (array)$request->getParsedBody();
       $bubble_object = json_decode($bubble_data["entry"]);
 
-      $bubble_from_db = $this->bubbleReader->getBubbleData($bubble_object->bubble_id);
-      $bubble_from_db->radius += 1;       // TODO make this increase based on bubble and click details
-      ////  YAY THIS SAVES, TODO cleanup    Vars named "clicker" below are actually just updaters
-      $this->bubbleClicker->clickBubble($bubble_object->bubble_id, (array)$bubble_from_db);
+      // This has a side effects: load bubble, change its radius, save bubble, return value:
+      $bubble_from_db = $this->bubbleClicker->clickBubble($bubble_object->bubble_id);
       // We must json encode the return_data https://www.slimframework.com/docs/v4/objects/response.html#returning-json
       $payload = json_encode($bubble_from_db);
       $response->getBody()->write($payload);

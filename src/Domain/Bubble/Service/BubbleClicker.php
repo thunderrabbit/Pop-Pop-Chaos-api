@@ -43,17 +43,19 @@ final class BubbleClicker
      * Update bubble.
      *
      * @param int $bubbleId The bubble id
-     * @param array $data The request data
      *
-     * @return void
+     * @return BubbleData The bubble data with new radius
      */
-    public function clickBubble(int $bubbleId, array $data): void
+    public function clickBubble(int $bubbleId): BubbleData
     {
         // Input validation
-        $this->bubbleValidator->validateBubbleUpdate($bubbleId, $data);
+        // $this->bubbleValidator->validateBubbleUpdate($bubbleId, $data);
+
+        $bubble_from_db = $this->bubbleReader->getBubbleData($bubbleId);
+        $bubble_from_db->radius += 1;       // TODO make this increase based on bubble and click details
 
         // Validation was successfully
-        $bubble = new BubbleData($data);
+        $bubble = new BubbleData((array)$bubble_from_db);
         $bubble->id = $bubbleId;
 
         // Update the bubble
@@ -61,5 +63,6 @@ final class BubbleClicker
 
         // Logging
         $this->logger->info(sprintf('Bubble clicked successfully: %s', $bubbleId));
+        return $bubble_from_db;
     }
 }
