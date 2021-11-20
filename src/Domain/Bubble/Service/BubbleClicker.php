@@ -28,10 +28,12 @@ final class BubbleClicker
     public function __construct(
         BubbleRepository $repository,
         BubbleValidator $bubbleValidator,
-        LoggerFactory $loggerFactory
+        LoggerFactory $loggerFactory,
+        BubbleReader $bubbleReader
     ) {
         $this->repository = $repository;
         $this->bubbleValidator = $bubbleValidator;
+        $this->bubbleReader = $bubbleReader;
         $this->logger = $loggerFactory
             ->addFileHandler('bubble_clicker.log')
             ->createLogger();
